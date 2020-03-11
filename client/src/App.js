@@ -146,9 +146,9 @@ class App extends Component {
           this.state.showEditContactForm ?
             <form className="addForm" onSubmit={this.changeDetails}>
            
-              <input id="name" placeholder="name" name="name"></input>
-              <input id="address" placeholder="address" name="address"></input>
-              <input id="phone" placeholder="phone" name="phone"></input>
+              <input className="formInput" id="name" placeholder="name" name="name"></input>
+              <input className="formInput" id="address" placeholder="address" name="address"></input>
+              <input className="formInput" id="phone" placeholder="phone" name="phone"></input>
 
               <div className="formBtns">
                 <button className="submit" type="submit">SAVE</button>

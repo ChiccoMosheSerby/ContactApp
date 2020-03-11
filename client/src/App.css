@@ -55,6 +55,9 @@
   border-radius: 5px;
   cursor: pointer;
   margin:5px;
+  background-color: black;
+  color: white;
+  font-weight: bold;
 }
 input::placeholder{
   text-align: center;
@@ -65,7 +68,7 @@ input::placeholder{
   margin: auto;
  
 }
-.addForm input{
+.formInput{
   border:var(--border-color) 1 solid;
   border-radius: 10px;
   padding:10px;
