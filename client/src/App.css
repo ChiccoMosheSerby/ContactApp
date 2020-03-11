@@ -1,6 +1,6 @@
 
 :root {
-  --bg-color: #f3f3f4;
+  --bg-color: #813e3e;
   --border-color:#eff1f2;
   --font-color:#a2a4a5;
 }
@@ -58,6 +58,7 @@
 }
 input::placeholder{
   text-align: center;
+  color:white;
 }
 .formBtns{
   display: flex;
@@ -109,6 +110,7 @@ textarea{
     margin-top:100px;
     text-align: center;
     justify-content: center;
+  padding-top:20px;
 }
 .plusBtn{
   display:grid;
