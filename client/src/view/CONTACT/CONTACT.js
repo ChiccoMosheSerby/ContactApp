@@ -34,7 +34,7 @@ class CONTACT extends Component {
 
                     <div onClick={() => {
                         this.props.editContact(this.props.contactName, this.props.id);
-                    }}>&#128393;</div>
+                    }}>&#9998;</div>
 
                     <div className="fa fa-trash-o"
                         onClick={() => { this.props.removeContact(this.props.id) }}></div>
