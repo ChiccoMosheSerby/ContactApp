@@ -1,0 +1,115 @@
+
+:root {
+  --bg-color: #f3f3f4;
+  --border-color:#eff1f2;
+  --font-color:#a2a4a5;
+}
+
+
+.addForm{
+  display:grid;
+  grid-template-columns: 1fr;
+  border:var(--border-color) 1px solid;
+  position: absolute;
+
+  padding:20px;
+  margin:auto;
+  width:100% ; 
+  height:300px ; 
+  line-height: 300px;
+  position: fixed;
+  z-index: 10;
+  background-color: rgba(22, 22, 22, 0.534);
+  /* padding:100px; */
+}
+
+.addForm input{
+  border:var(--border-color) 1 solid;
+  border-radius: 10px;
+  padding:10px;
+  background-color: rgba(183, 211, 248, 0.75);
+  margin:5px;
+}
+html,
+body {
+  padding: 0;
+  margin: 0;
+  direction: ltr;
+  font-family: "Poppins", Sans-serif;
+  /* height: 100vh; */
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-appearance: none;
+}
+a{
+  text-decoration: none;
+}
+/* preventing safari default style------------- */
+input,
+textarea{
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+/*--------------------------------------------------*/
+
+.contactsWrapper {
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  align-content: flex-start;
+  
+}
+.plusBtn{
+  display:grid;
+  grid-template-columns: 1fr;
+  border:var(--border-color) 1px solid;
+  padding:20px;
+  margin:5px;
+  background-color: white;
+  width:30% ;
+  justify-items: center;
+  align-items: center;
+}
+
+.addContactBtn img{
+  width: auto;
+  height:100%;
+  margin: auto;
+  border-radius: 50%;
+}
+
+.plusBtn:hover{
+cursor: pointer;
+background-color: rgb(219, 219, 219);
+-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+@media only screen and (max-width:1000px) {
+  .plusBtn{
+
+    width:100% ;
+}
+
+.addForm{
+  width: 100vw;
+}
+.addForm input{
+  border:var(--border-color) 1 solid;
+  border-radius: 10px;
+  padding:10px;
+  width: 80%;
+  margin: auto;
+  background-color: rgba(183, 211, 248, 0.75);
+  margin:5px;
+}
+}
