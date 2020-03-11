@@ -3,9 +3,6 @@ import React, { Component } from 'react';
 import './App.css';
 //components----------------------------------------------///////////////////
 import CONTACT from './view/CONTACT/CONTACT';
-import SEARCH from './view/SEARCH/SEARCH';
-
-
 
 //end - components----------------------------------------------////////////
 
@@ -24,42 +21,42 @@ class App extends Component {
           contactImg: '/img/avatar2.png',
           contactLocation: 'Tel Aviv',
           phoneNumber: "(123)4567890",
-          id:0
+          id: 0
         },
         {
           contactName: 'alex roman',
           contactImg: '/img/avatar3.jpg',
           contactLocation: 'Riviera State 32/106',
           phoneNumber: "(123)4567890",
-          id:1
+          id: 1
         },
         {
           contactName: 'Chicco Moshe Serby',
           contactImg: '/img/chicco.png',
           contactLocation: "Netanya - Ha'merkaz",
           phoneNumber: "+972(0)585313233",
-          id:2
+          id: 2
         },
         {
           contactName: 'matrix',
           contactImg: '/img/matrix.png',
           contactLocation: 'New York State 32/106',
           phoneNumber: "(123)4567890",
-          id:3
+          id: 3
         },
         {
           contactName: 'someoneNinja',
           contactImg: '/img/someoneNinja.png',
           contactLocation: 'Riviera State 32/106',
           phoneNumber: "(123)4567890",
-          id:4
+          id: 4
         },
         {
           contactName: 'avatar 4',
           contactImg: '/img/avatar4.png',
           contactLocation: 'Berlin',
           phoneNumber: "(123)4567890",
-          id:5
+          id: 5
         }
       ],
       showEditContactForm: false
@@ -77,7 +74,7 @@ class App extends Component {
       contactName: 'edit name',
       contactImg: '/img/someone.png',
       contactLocation: 'Location',
-      id: this.state.contacts[this.state.contacts.length-1].id +1
+      id: this.state.contacts[this.state.contacts.length - 1].id + 1
     }
     console.log(tempContactName.id)
     this.setState({
@@ -148,11 +145,20 @@ class App extends Component {
         {
           this.state.showEditContactForm ?
             <form className="addForm" onSubmit={this.changeDetails}>
-              <input placeholder="name" name="name"></input>
-              <input placeholder="address" name="address"></input>
-              <input placeholder="phone" name="phone"></input>
+           
+              <input id="name" placeholder="name" name="name"></input>
+              <input id="address" placeholder="address" name="address"></input>
+              <input id="phone" placeholder="phone" name="phone"></input>
 
-              <button type="submit">SAVE</button>
+              <div className="formBtns">
+                <button className="submit" type="submit">SAVE</button>
+                <button onClick={(e) => {
+                  document.getElementById('name').value = '';
+                  document.getElementById('address').value = '';
+                  document.getElementById('phone').value = '';
+                  this.setState({ showEditContactForm: false })
+                }} className="x-btn">CANCEL</button>
+              </div>
             </form>
             :
             null
