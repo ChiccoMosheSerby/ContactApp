@@ -71,15 +71,17 @@ class App extends Component {
 
   addContact() {
     let tempContactName = {
-      contactName: 'edit name',
+      contactName: 'Edit',
       contactImg: '/img/someone.png',
-      contactLocation: 'Location',
+      contactLocation: '',
       id: this.state.contacts[this.state.contacts.length - 1].id + 1
     }
     console.log(tempContactName.id)
     this.setState({
       contacts: [...this.state.contacts, tempContactName]
-    })
+    });
+
+    this.editContact('Edite',this.state.contacts.length)
   }
 
   editContact(name, contactToEdit) {
@@ -146,9 +148,9 @@ class App extends Component {
           this.state.showEditContactForm ?
             <form className="addForm" onSubmit={this.changeDetails}>
            
-              <input className="formInput" id="name" placeholder="name" name="name"></input>
-              <input className="formInput" id="address" placeholder="address" name="address"></input>
-              <input className="formInput" id="phone" placeholder="phone" name="phone"></input>
+              <input className="formInput" id="name" placeholder="Full Name" name="name"></input>
+              <input className="formInput" id="address" placeholder="Address" name="address"></input>
+              <input className="formInput" id="phone" placeholder="Phone Number" name="phone"></input>
 
               <div className="formBtns">
                 <button className="submit" type="submit">SAVE</button>
@@ -165,7 +167,7 @@ class App extends Component {
         }
         <div className="header">
 
-          <input placeholder="search contact by name"
+          <input placeholder="Search contact by Name"
             className="search" type="text" onChange={(e) => this.setState({ search: e.target.value.split(' ') })} />
 
         </div>
@@ -173,6 +175,7 @@ class App extends Component {
           {
             options.map((contact, index) => {
               return (
+              
                 <CONTACT key={index} id={contact.id} contactName={contact.contactName}
                   contactImg={contact.contactImg}
                   contactLocation={contact.contactLocation}

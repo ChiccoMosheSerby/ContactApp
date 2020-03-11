@@ -20,12 +20,26 @@ class CONTACT extends Component {
 
                 <div className="singleContacBlock-img">
                     <img src={this.props.contactImg} alt="" />
-                    <div className="contactName">{this.props.contactName}</div>
+                    {
+                        this.props.contactName == "Edit" ?
+                            <div onClick={() => {
+                                this.props.editContact(this.props.contactName, this.props.id);
+                            }} className="contactName">{this.props.contactName}</div>
+                            :
+                            <div className="contactName">{this.props.contactName}</div>
+
+                    }
                 </div>
 
                 <div className="singleContacBlock-details">
-
-                    <h3>{this.props.contactName}</h3>
+                    {
+                        this.props.contactName == "Edit" ?
+                            <h3 onClick={() => {
+                                this.props.editContact(this.props.contactName, this.props.id);
+                            }}>{this.props.contactName}</h3>
+                            :
+                            <h3>{this.props.contactName}</h3>
+                    }
                     <div class="">{this.props.contactLocation}</div>
                     <div className="phoneNumber">{this.props.phoneNumber}</div>
 

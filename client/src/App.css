@@ -1,6 +1,6 @@
 
 :root {
-  --bg-color: #813e3e;
+  --bg-color: #813d3d;
   --border-color:#eff1f2;
   --font-color:#a2a4a5;
 }
@@ -18,8 +18,8 @@
 }
 
 .header{
-  height: 100px; 
-  line-height: 100px;
+  height: 70px; 
+  line-height:70px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -37,8 +37,9 @@
   position: absolute;
   padding:30px;
   width:100% ; 
-  height:300px ; 
-  line-height: 300px;
+  max-width: 100vw;
+  height:400px ; 
+  line-height: 200px;
   position: fixed;
   margin: 5% auto; /* Will not center vertically and won't work in IE6/7. */
   left: 0;
@@ -111,7 +112,7 @@ textarea{
   min-height: 100vh;
   background-color: var(--bg-color);
   align-content: flex-start;
-    margin-top:100px;
+    margin-top:70px;
     text-align: center;
     justify-content: center;
   padding-top:20px;
@@ -155,8 +156,8 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 .addForm input{
   border:var(--border-color) 1 solid;
   border-radius: 10px;
-  padding:10px;
-  width: 80%;
+  padding:5px;
+  width: 100%;
   margin: auto;
   background-color: rgba(183, 211, 248, 0.75);
   margin:5px;
