@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import './App.css';
 //components----------------------------------------------///////////////////
 import CONTACT from './view/CONTACT/CONTACT';
+import SEARCH from './view/SEARCH/SEARCH';
+
 
 
 //end - components----------------------------------------------////////////
@@ -15,43 +17,49 @@ class App extends Component {
 
     this.state = {
       contactToEdit: '',
-
+      search: [],
       contacts: [
         {
           contactName: 'avatar someone',
           contactImg: '/img/avatar2.png',
           contactLocation: 'Tel Aviv',
-          phoneNumber: "(123)4567890"
+          phoneNumber: "(123)4567890",
+          id:0
         },
         {
           contactName: 'alex roman',
           contactImg: '/img/avatar3.jpg',
           contactLocation: 'Riviera State 32/106',
-          phoneNumber: "(123)4567890"
+          phoneNumber: "(123)4567890",
+          id:1
         },
         {
           contactName: 'Chicco Moshe Serby',
           contactImg: '/img/chicco.png',
           contactLocation: "Netanya - Ha'merkaz",
-          phoneNumber: "+972(0)585313233"
+          phoneNumber: "+972(0)585313233",
+          id:2
         },
         {
           contactName: 'matrix',
           contactImg: '/img/matrix.png',
           contactLocation: 'New York State 32/106',
-          phoneNumber: "(123)4567890"
+          phoneNumber: "(123)4567890",
+          id:3
         },
         {
           contactName: 'someoneNinja',
           contactImg: '/img/someoneNinja.png',
           contactLocation: 'Riviera State 32/106',
-          phoneNumber: "(123)4567890"
+          phoneNumber: "(123)4567890",
+          id:4
         },
         {
           contactName: 'avatar 4',
           contactImg: '/img/avatar4.png',
           contactLocation: 'Berlin',
-          phoneNumber: "(123)4567890"
+          phoneNumber: "(123)4567890",
+          id:5
         }
       ],
       showEditContactForm: false
@@ -68,8 +76,10 @@ class App extends Component {
     let tempContactName = {
       contactName: 'edit name',
       contactImg: '/img/someone.png',
-      contactLocation: 'Location'
+      contactLocation: 'Location',
+      id: this.state.contacts[this.state.contacts.length-1].id +1
     }
+    console.log(tempContactName.id)
     this.setState({
       contacts: [...this.state.contacts, tempContactName]
     })
@@ -109,11 +119,6 @@ class App extends Component {
     else {
       alert('please fix phone format. can contain only 0-9 () + characters')
     }
-
-
-
-
-
   }
 
   removeContact(contactToRemove) {
@@ -127,7 +132,17 @@ class App extends Component {
   }
 
   render() {
+    let options;
+    if (this.state.search.length) {
+      const searchPattern = new RegExp(this.state.search.map(term => `(?=.*${term})`).join(''), 'i');
+      options = this.state.contacts.filter(option =>
+        option.contactName.match(searchPattern)
+      );
+    } else {
 
+      options = this.state.contacts;
+      console.log(options);
+    }
     return (
       <div className="App">
         {
@@ -142,11 +157,17 @@ class App extends Component {
             :
             null
         }
+        <div className="header">
+
+          <input placeholder="search contact by name"
+            className="search" type="text" onChange={(e) => this.setState({ search: e.target.value.split(' ') })} />
+
+        </div>
         <div className="contactsWrapper">
           {
-            this.state.contacts.map((contact, index) => {
+            options.map((contact, index) => {
               return (
-                <CONTACT key={index} id={index} contactName={contact.contactName}
+                <CONTACT key={index} id={contact.id} contactName={contact.contactName}
                   contactImg={contact.contactImg}
                   contactLocation={contact.contactLocation}
                   removeContact={this.removeContact}
