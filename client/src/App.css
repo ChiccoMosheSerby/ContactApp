@@ -15,6 +15,11 @@
   border-radius: 15px;
   outline: none;
   color: white;
+
+  position: fixed;
+  top:0;
+
+  z-index:10;
 }
 
 .header{
@@ -24,8 +29,7 @@
   flex-direction: row;
   justify-content: center;
   align-content: center;
-  position: fixed;
-  top:0;
+
   width: 100vw;
   z-index: 10;
 }
@@ -84,7 +88,12 @@ body {
   direction: ltr;
   font-family: "Poppins", Sans-serif;
   /* height: 100vh; */
-}
+
+  background: rgb(255, 255, 255);
+  background: -moz-linear-gradient(171deg,rgb(255, 255, 255) 12%, rgba(129,61,61,1) 52%);
+  background: -webkit-linear-gradient(171deg, rgb(255, 255, 255) 12%, rgba(129,61,61,1) 52%);
+  background: linear-gradient(171deg, rgb(255, 255, 255) 12%, rgba(129,61,61,1) 52%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#9296fc",endColorstr="#813d3d",GradientType=1);}
 
 * {
   box-sizing: border-box;
@@ -110,7 +119,7 @@ textarea{
   flex-direction: row;
   flex-flow: wrap;
   min-height: 100vh;
-  background-color: var(--bg-color);
+  /* background-color: var(--bg-color); */
   align-content: flex-start;
     margin-top:70px;
     text-align: center;
@@ -134,6 +143,8 @@ textarea{
   height:100%;
   margin: auto;
   border-radius: 50%;
+
+  
 }
 
 .plusBtn:hover{
